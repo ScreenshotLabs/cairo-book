@@ -4,12 +4,12 @@ import { Heading } from '@/components/Heading'
 const guides = [
   {
     href: '/authentication',
-    name: 'Authentication',
+    name: 'fff',
     description: 'Learn how to authenticate your API requests.',
   },
   {
     href: '/pagination',
-    name: 'Pagination',
+    name: 'rzr',
     description: 'Understand how to work with paginated responses.',
   },
   {

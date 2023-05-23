@@ -1,7 +1,7 @@
 export const description =
   'On this page, we’ll dive into the different contact endpoints you can use to manage contacts programmatically.'
   
-## What Is Ownership?
+# What Is Ownership?
 
 Cairo implements an ownership system to ensure the safety and correctness of its compiled code.
 The ownership mechanism complements the linear type system, which enforces that objects are used exactly once.
@@ -15,7 +15,7 @@ examples inside a `main` function manually. As a result, our examples will be a
 bit more concise, letting us focus on the actual details rather than
 boilerplate code.
 
-### Ownership Rules
+## Ownership Rules
 
 First, let’s take a look at the ownership rules. Keep these rules in mind as we
 work through the examples that illustrate them:
@@ -24,7 +24,7 @@ work through the examples that illustrate them:
 - There can only be one owner at a time.
 - When the owner goes out of scope, the value will be _dropped_.
 
-### Variable Scope
+## Variable Scope
 
 As a first example of ownership, we’ll look at the _scope_ of some variables. A
 scope is the range within a program for which an item is valid. Take the
@@ -42,12 +42,11 @@ program with comments annotating where the variable `s` would be valid.
 ```rust
     {                      // s is not valid here, it’s not yet declared
         let s = 'hello';   // s is valid from this point forward
-
         // do stuff with s
     }                      // this scope is now over, and s is no longer valid
 ```
 
-<span class="caption">Listing 3-1: A variable and the scope in which it is
+<span className="caption">Listing 3-1: A variable and the scope in which it is
 valid</span>
 
 In other words, there are two important points in time here:
@@ -57,12 +56,12 @@ In other words, there are two important points in time here:
 
 At this point, the relationship between scopes and when variables are valid is
 similar to that in other programming languages. Now we’ll build on top of this
-understanding by using the `Array` type we introduced in the [previous chapter](ch02-06-common-collections.md).
+understanding by using the `Array` type we introduced in the [previous chapter](ch02-06-common-collections).
 
-### Ownership with the `Array` Type
+## Ownership with the `Array` Type
 
 To illustrate the rules of ownership, we need a data type that is more complex.
-The types covered in the [“Data Types”][data-types]<!-- ignore --> section
+The types covered in the [Data Types](ch02-02-data-types) section
 of Chapter 2 are of a known size, can be
 quickly and trivially copied to make a new, independent instance if another
 part of code needs to use the same value in a different scope, and can easily
@@ -113,7 +112,7 @@ error: Variable was previously moved. Trait has no implementation in context: co
         ^*****^
 ```
 
-### The `Copy` Trait
+## The `Copy` Trait
 
 If a type implements the `Copy` trait, passing it to a function will not move the ownership of the value to the function called, but will instead pass a copy of the value.
 You can implement the `Copy` trait on your type by adding the `#[derive(Copy)]` annotation to your type definition. However, Cairo won't allow a type to be annotated with Copy if the type itself or any of its components don't implement the Copy trait.
@@ -142,7 +141,7 @@ If you remove the `Copy` trait derivation from the `Point` type, you will get a 
 
 _Don't worry about the `Struct` keyword. We will introduce this in [Chapter 4](ch04-00-using-structs-to-structure-related-data.md)._
 
-### The `Drop` Trait
+## The `Drop` Trait
 
 You may have noticed that the `Point` type in the previous example also implements the `Drop` trait. In Cairo, a value cannot go out of scope unless it has been previously moved.
 For example, the following code will not compile, because the struct `A` is not moved before it goes out of scope:
@@ -178,7 +177,7 @@ fn main() {
 }
 ```
 
-### The `Destruct` Trait
+## The `Destruct` Trait
 
 Manually calling the `squash` method on a dictionary is not very convenient, and it is easy to forget to do so. To make it easier to use dictionaries, Cairo provides the `Destruct` trait, which allows you to specify the behavior of a type when it goes out of scope. While Dictionaries don't implement the `Drop` trait, they do implement the `Destruct` trait, which allows them to automatically be `squashed` when they go out of scope. This means that you can use dictionaries without having to manually call the `squash` method.
 
@@ -226,7 +225,7 @@ fn main() {
 
 Now, when `A` goes out of scope, its dictionary will be automatically `squashed`, and the program will compile.
 
-### Copy Array data with Clone
+## Copy Array data with Clone
 
 If we _do_ want to deeply copy the data of an `Array`, we can use a common method called `clone`. We’ll discuss method syntax in Chapter 5, but because methods are a common feature in many
 programming languages, you’ve probably seen them before.
@@ -251,14 +250,14 @@ When you see a call to `clone`, you know that some arbitrary code is being
 executed and that code may be expensive. It’s a visual indicator that something
 different is going on.
 
-### Ownership and Functions
+## Ownership and Functions
 
 Passing a variable to a function will either move it or copy it. As seen in the Array section, passing an `Array` as a function parameter transfers its ownership; let's see what happens with other types.
 
 Listing 3-3 has an example with some annotations
 showing where variables go into and out of scope.
 
-<span class="filename">Filename: src/main.cairo</span>
+<span className="filename">Filename: src/main.cairo</span>
 
 ```rust
 #[derive(Drop)]
@@ -286,7 +285,7 @@ fn makes_copy(some_uinteger: u128) { // some_uinteger comes into scope
 } // Here, some_integer goes out of scope and is dropped.
 ```
 
-<span class="caption">Listing 3-3: Functions with ownership and scope
+<span className="caption">Listing 3-3: Functions with ownership and scope
 annotated</span>
 
 If we tried to use `my_struct` after the call to `takes_ownership`, Cairo would throw a
@@ -294,13 +293,13 @@ compile-time error. These static checks protect us from mistakes. Try adding
 code to `main` that uses `my_struct` and `x` to see where you can use them and where
 the ownership rules prevent you from doing so.
 
-### Return Values and Scope
+## Return Values and Scope
 
 Returning values can also transfer ownership. Listing 3-4 shows an example of a
 function that returns some value, with similar annotations as those in Listing
 4-3.
 
-<span class="filename">Filename: src/main.cairo</span>
+<span className="filename">Filename: src/main.cairo</span>
 
 ```rust
 #[derive(Drop)]
@@ -340,7 +339,7 @@ fn takes_and_gives_back(some_a: A) -> A { // some_a comes into
 }
 ```
 
-<span class="caption">Listing 3-4: Transferring ownership of return
+<span className="caption">Listing 3-4: Transferring ownership of return
 values</span>
 
 When a variable goes out of scope, its value is dropped, unless ownership of the value has been moved to another variable.
@@ -353,7 +352,7 @@ from the body of the function that we might want to return as well.
 
 Cairo does let us return multiple values using a tuple, as shown in Listing 3-5.
 
-<span class="filename">Filename: src/main.cairo</span>
+<span className="filename">Filename: src/main.cairo</span>
 
 ```rust
 use array::ArrayTrait;
@@ -370,11 +369,11 @@ fn calculate_length(arr: Array<u128>) -> (Array<u128>, usize) {
 }
 ```
 
-<span class="caption">Listing 3-5: Returning ownership of parameters</span>
+<span className="caption">Listing 3-5: Returning ownership of parameters</span>
 
 But this is too much ceremony and a lot of work for a concept that should be
 common. Luckily for us, Cairo has two features for using a value without
 transferring ownership, called _references_ and _snapshots_.
 
-[data-types]: ch02-02-data-types.html#data-types
-[method-syntax]: ch04-03-method-syntax.html#method-syntax
+[data-types](/ch02-02-data-types.html#data-types)
+[method-syntax](/ch04-03-method-syntax.html#method-syntax)

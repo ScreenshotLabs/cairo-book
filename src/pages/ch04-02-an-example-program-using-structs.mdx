@@ -7,7 +7,7 @@ To understand when we might want to use structs, let’s write a program that ca
 
 Let’s make a new project with Scarb called _rectangles_ that will take the width and height of a rectangle specified in pixels and calculate the area of the rectangle. Listing 4-6 shows a short program with one way of doing exactly that in our project’s _src/lib.cairo_.
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```rust
 use debug::PrintTrait;
@@ -23,7 +23,7 @@ fn area(width: u64, height: u64) -> u64 {
 }
 ```
 
-<span class="caption">Listing 4-6: Calculating the area of a rectangle specified by separate width and height variables</span>
+<span className="caption">Listing 4-6: Calculating the area of a rectangle specified by separate width and height variables</span>
 
 Now run the program with `cairo-run src/lib.cairo`:
 
@@ -48,7 +48,7 @@ The `area` function is supposed to calculate the area of one rectangle, but the 
 
 Listing 4-7 shows another version of our program that uses tuples.
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```rust
 use debug::PrintTrait;
@@ -64,7 +64,7 @@ fn area(dimension: (u64, u64)) -> u64 {
 }
 ```
 
-<span class="caption">Listing 4-7: Specifying the width and height of the rectangle with a tuple</span>
+<span className="caption">Listing 4-7: Specifying the width and height of the rectangle with a tuple</span>
 
 In one way, this program is better. Tuples let us add a bit of structure, and we’re now passing just one argument. But in another way, this version is less clear: tuples don’t name their elements, so we have to index into the parts of the tuple, making our calculation less obvious.
 
@@ -74,7 +74,7 @@ Mixing up the width and height wouldn’t matter for the area calculation, but i
 
 We use structs to add meaning by labeling the data. We can transform the tuple we’re using into a struct with a name for the whole as well as names for the parts.
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```rust
 use debug::PrintTrait;
@@ -98,7 +98,7 @@ fn area(rectangle: Rectangle) -> u64 {
 }
 ```
 
-<span class="caption">Listing 4-8: Defining a `Rectangle` struct</span>
+<span className="caption">Listing 4-8: Defining a `Rectangle` struct</span>
 
 Here we’ve defined a struct and named it `Rectangle`. Inside the curly brackets, we defined the fields as `width` and `height`, both of which have type `u64`. Then, in `main`, we created a particular instance of `Rectangle` that has a width of `30` and a height of `10`. Our `area` function is now defined with one parameter, which we’ve named `rectangle` which is of type `Rectangle` struct. We can then access the fields of the instance with dot notation, and it gives descriptive names to the values rather than using the tuple index values of `0` and `1`.
 
@@ -106,7 +106,7 @@ Here we’ve defined a struct and named it `Rectangle`. Inside the curly bracket
 
 It’d be useful to be able to print an instance of `Rectangle` while we’re debugging our program and see the values for all its fields. Listing 4-9 tries using the `print` as we have used in previous chapters. This won’t work.
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```rust
 use debug::PrintTrait;
@@ -125,7 +125,7 @@ fn main() {
 }
 ```
 
-<span class="caption">Listing 4-9: Attempting to print a `Rectangle` instance</span>
+<span className="caption">Listing 4-9: Attempting to print a `Rectangle` instance</span>
 
 When we compile this code, we get an error with this message:
 
@@ -142,7 +142,7 @@ Error: Compilation failed.
 The `print` trait is implemented for many data types, but not for the `Rectangle` struct. We can fix this by implementing the `PrintTrait` trait on `Rectangle` as shown in Listing 4-10.
 To learn more about traits, see [Traits in Cairo](ch07-02-traits-in-cairo.md).
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```rust
 use debug::PrintTrait;
@@ -168,6 +168,6 @@ impl RectanglePrintImpl of PrintTrait<Rectangle> {
 }
 ```
 
-<span class="caption">Listing 4-10: Implementing the `PrintTrait` trait on `Rectangle`</span>
+<span className="caption">Listing 4-10: Implementing the `PrintTrait` trait on `Rectangle`</span>
 
 Nice! It’s not the prettiest output, but it shows the values of all the fields for this instance, which would definitely help during debugging.

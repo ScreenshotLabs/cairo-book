@@ -12,18 +12,30 @@ export const sections = [
 
 <HeroPattern />
 
-# API Documentation
+# The Cairo Programming Language
 
-Use the Protocol API to access contacts, conversations, group messages, and more and seamlessly integrate your product into the workflows of dozens of devoted Protocol users. {{ className: 'lead' }}
+by the Cairo Community and its [contributors](https://github.com/cairo-book/cairo-book.github.io). Special thanks to [Starkware](https://starkware.co/) through [OnlyDust](https://www.onlydust.xyz/), and [Voyager](https://voyager.online/) for supporting the creation of this book.
+
+This version of the text assumes you’re using Cairo v1.0.0-alpha.7 (released 2023-04-13). See the [Installation](ch01-01-installation) section of Chapter 1 to install or update Cairo.
 
 <div className="not-prose mb-16 mt-6 flex gap-3">
   <Button href="/quickstart" arrow="right" children="Quickstart" />
   <Button href="/sdks" variant="outline" children="Explore SDKs" />
 </div>
 
-## Getting started {{ anchor: false }}
+# Foreword
 
-To get started, create a new application in your [developer settings](#), then read about how to make requests for the resources you need to access using our HTTP APIs or dedicated client SDKs. When your integration is ready to go live, publish it to our [integrations directory](#) to reach the Protocol community. {{ className: 'lead' }}
+In 2020, StarkWare released Cairo 0, a Turing-complete programming language supporting verifiable computation. Cairo started as an assembly language and gradually became more expressive. The learning curve was initially steep, as Cairo 0.x was a low-level language that did not entirely abstract the underlying cryptographic primitives required to build a proof for the execution of a program.
+
+With the release of Cairo 1, the developer experience has considerably improved, abstracting away the underlying immutable memory model of the Cairo architecture where possible. Strongly inspired by Rust, Cairo 1 has been built to help you create provable programs without specific knowledge of its underlying architecture so that you can focus on the program itself, increasing the overall security of Cairo programs. Powered by a Rust VM, the execution of Cairo programs is now _blazingly_ fast, allowing you to build an extensive test suite without compromising on performance.
+
+Blockchain developers that want to deploy contracts on Starknet will use the Cairo programming language to code their smart contracts. This allows the Starknet OS to generate execution traces for transactions to be proved by a prover, which is then verified on Ethereum L1 prior to updating the state root of Starknet.
+
+However, Cairo is not only for blockchain developers. As a general purpose programming language, it can be used for any computation that would benefit from being proved on one computer and verified on other machines with lower hardware requirements.
+
+This book is designed for developers with a basic understanding of programming concepts. It is a friendly and approachable text intended to help you level up your knowledge of Cairo, but also help you develop your programming skills in general. So, dive in and get ready to learn all there is to know about Cairo!
+
+— The Cairo community
 
 <div className="not-prose">
   <Button

@@ -49,15 +49,15 @@ mod Example{
 }
 ```
 
-<span class="caption">Listing 9-1: A simple naming service contract</span>
+<span className="caption">Listing 9-1: A simple naming service contract</span>
 
-> NB: Starknet contracts are defined within [modules](./ch06-02-defining-modules-to-control-scope.md).
+NB: Starknet contracts are defined within [modules](./ch06-02-defining-modules-to-control-scope.md).
 
 ## Starknet Contract Attributes
 
 Attributes are special annotations that modify the behavior of certain functions or methods. They are placed preceding a function and are denoted by the `#[]` symbol.
 
-<!-- TODO: Appendix on attributes -->
+{/* TODO: Appendix on attributes */}
 
 Here are a list of common attributes used in Starknet contracts:
 
@@ -88,7 +88,7 @@ struct Storage{
 }
 ```
 
-<span class="caption">Listing 9-2: A Storage Struct</span>
+<span className="caption">Listing 9-2: A Storage Struct</span>
 
 The storage struct is a [struct](./ch04-00-using-structs-to-structure-related-data.md) like any other,
 except that it allows you to define mappings using the `LegacyMap` type.
@@ -97,7 +97,7 @@ except that it allows you to define mappings using the `LegacyMap` type.
 
 Mappings are a key-value data structure that you can use to store data within a smart contract. They are essentially hash tables that allow you to associate a unique key with a corresponding value. Mappings are also useful to store sets of data, as it's impossible to store arrays in storage.
 
-A mapping is a variable of type LegacyMap, in which the key and value types are specified within angular brackets <>.
+A mapping is a variable of type LegacyMap, in which the key and value types are specified within angular brackets ```<>```.
 It is important to note that the `LegacyMap` type can only be used inside the `Storage` struct, and can't be used to define mappings in user-defined structs.
 The syntax for declaring a mapping is as follows in Listing 9-2.
 
@@ -120,7 +120,7 @@ To read the value of the storage variable `names`, we call the `read` function o
 let name = names::read(_address);
 ```
 
-<span class="caption">Listing 9-3: Calling the `read` function on the `names` variable</span>
+<span className="caption">Listing 9-3: Calling the `read` function on the `names` variable</span>
 
 > Note: When the storage variable does not store a mapping, its value is accessed without passing any parameters to the read method
 
@@ -132,7 +132,7 @@ To write a value to the storage variable `names`, we call the `write` function o
 names::write(_address, _name);
 ```
 
-<span class="caption">Listing 9-4: Writing to the `names` variable</span>
+<span className="caption">Listing 9-4: Writing to the `names` variable</span>
 
 ## Functions
 

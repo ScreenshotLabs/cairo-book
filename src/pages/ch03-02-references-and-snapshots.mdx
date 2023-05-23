@@ -1,14 +1,14 @@
 export const description =
   'On this page, we’ll dive into the different contact endpoints you can use to manage contacts programmatically.'
   
-## References and Snapshots
+# References and Snapshots
 
 The issue with the tuple code in Listing 3-5 is that we have to return the
 `Array` to the calling function so we can still use the `Array` after the
 call to `calculate_length`, because the `Array` was moved into
 `calculate_length`.
 
-### Snapshots
+## Snapshots
 
 Instead, we can provide a _snapshot_ of the `Array` value. In Cairo, a snapshot
 is an immutable view of a value at a certain point in time. In the previous chapter,
@@ -23,7 +23,7 @@ the `calculate_length` function returns the length of the array passed as parame
 As we're passing it as a snapshot, which is an immutable view of the array, we can be sure that
 the `calculate_length` function will not mutate the array, and ownership of the array is kept in the main function.
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```rust
 use array::ArrayTrait;
@@ -111,7 +111,7 @@ fn calculate_area(rec: @Rectangle) -> u64 {
 But, what happens if we try to modify something we’re passing as snapshot? Try the code in
 Listing 3-6. Spoiler alert: it doesn’t work!
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```rust
 #[derive(Copy,Drop)]
@@ -132,7 +132,7 @@ fn flip(rec: @Rectangle) {
 }
 ```
 
-<span class="caption">Listing 3-6: Attempting to modify a snapshot value</span>
+<span className="caption">Listing 3-6: Attempting to modify a snapshot value</span>
 
 Here’s the error:
 
@@ -145,7 +145,7 @@ error: Invalid left-hand side of assignment.
 
 The compiler prevents us from modifying values associated to snapshots.
 
-### Mutable References
+## Mutable References
 
 We can achieve the behavior we want in Listing 3-6 by using a _mutable reference_ instead of a snapshot. Mutable references are actually mutable values passed to a function that are implicitly returned at the end of the function, returning ownership to the calling context. By doing so, they allow you to mutate the value passed while keeping ownership of it by returning it automatically at the end of the execution.
 In Cairo, a parameter can be passed as _mutable reference_ using the `ref` modifier.
@@ -176,7 +176,7 @@ fn flip(ref rec: Rectangle) {
 }
 ```
 
-<span class="caption">Listing 3-7: Use of a mutable reference to modify a value</span>
+<span className="caption">Listing 3-7: Use of a mutable reference to modify a value</span>
 
 First, we change `rec` to be `mut`. Then we pass a mutable reference of `rec` into `flip` with `ref rec`, and update the function signature to accept a mutable reference with `ref rec: Rectangle`. This makes it very clear that the `flip` function will mutate the value of the `Rectangle` instance passed as parameter.
 
@@ -191,7 +191,7 @@ The output of the program is:
 
 As expected, the `height` and `width` fields of the `rec` variable have been swapped.
 
-### Small recap
+## Small recap
 
 Let’s recap what we’ve discussed about ownership, snapshots, and references:
 

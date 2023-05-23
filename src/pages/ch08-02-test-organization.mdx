@@ -19,7 +19,7 @@ The `#[cfg(test)]` annotation on the tests module tells Cairo to compile and run
 
 Recall that when we created the new `adder` project in the first section of this chapter, we wrote this first test:
 
-<span class="filename">Filename: lib.cairo</span>
+<span className="filename">Filename: lib.cairo</span>
 
 ```rust
 #[cfg(test)]
@@ -51,7 +51,7 @@ adder
     └── integration_test.cairo
 ```
 
-<!-- TODO: remove when Scarb test work -->
+// TODO: remove when Scarb test work
 
 > To successfully run your tests with `cairo-test` you will need to update your `cairo_project.toml` file to add the declaration of your `tests` crate.
 >
@@ -63,7 +63,7 @@ adder
 
 Each test file is compiled as its own separate crate, that's why whenever you add a new test file you must add it to your _tests/lib.cairo_.
 
-<span class="filename">Filename: tests/lib.cairo</span>
+<span className="filename">Filename: tests/lib.cairo</span>
 
 ```rust
 #[cfg(tests)]
@@ -72,7 +72,7 @@ mod integration_tests;
 
 Enter the code in Listing 11-13 into the _tests/integration_test.cairo_ file:
 
-<span class="filename">Filename: tests/integration_test.cairo</span>
+<span className="filename">Filename: tests/integration_test.cairo</span>
 
 ```rust
 use adder::main;

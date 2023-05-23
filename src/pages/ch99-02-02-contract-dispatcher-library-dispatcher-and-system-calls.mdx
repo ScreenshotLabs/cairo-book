@@ -37,7 +37,7 @@ impl IERC20DispatcherImpl of IERC20DispatcherTrait::<IERC20Dispatcher> {
 }
 ```
 
-<span class="caption">Listing 9-2: An expanded form of the IERC20 trait</span>
+<span className="caption">Listing 9-2: An expanded form of the IERC20 trait</span>
 
 **NB:** The expanded code for our IERC20 interface is a lot more robust, but to keep this chapter concise and straight to the point, we focused on one view function `get_name`, and one external function `transfer`.
 
@@ -72,7 +72,7 @@ mod Dispatcher {
 }
 ```
 
-<span class="caption">Listing 9-3: A sample contract which uses the Contract Dispatcher</span>
+<span className="caption">Listing 9-3: A sample contract which uses the Contract Dispatcher</span>
 
 As you can see, we had to first import the `IERC20DispatcherTrait` and `IERC20Dispatcher` which was generated and exported on compiling our interface, then we make calls to the methods implemented for the `IERC20Dispatcher` struct (`name`, `transfer`, etc), passing in the `contract_address` parameter which represents the address of the contract we want to call.
 
@@ -104,7 +104,7 @@ impl IERC20LibraryDispatcherImpl of IERC20DispatcherTrait::<IERC20LibraryDispatc
 }
 ```
 
-<span class="caption">Listing 9-4: An expanded form of the IERC20 trait</span>
+<span className="caption">Listing 9-4: An expanded form of the IERC20 trait</span>
 
 ### Calling Contracts using the Library Dispatcher
 
@@ -130,7 +130,7 @@ fn transfer_token(
 }
 ```
 
-<span class="caption">Listing 9-4: A sample contract using the Library Dispatcher</span>
+<span className="caption">Listing 9-4: A sample contract using the Library Dispatcher</span>
 
 As you can see, we had to first import the `IERC20DispatcherTrait` and `IERC20LibraryDispatcher` which was generated and exported on compiling our interface, then we make calls to the methods implemented for the `IERC20LibraryDispatcher` struct (`name`, `transfer`, etc), passing in the `class_hash` parameter which represents the class of the contract we want to call.
 
@@ -149,6 +149,6 @@ fn transfer_token(
 }
 ```
 
-<span class="caption">Listing 9-5: A sample contract implementing system calls</span>
+<span className="caption">Listing 9-5: A sample contract implementing system calls</span>
 
 As you can see, rather than pass our function arguments directly, we passed in the contract address, function selector (which is a keccak hash of the function name), and the calldata (function arguments). At the end, we get returned a serialized value which we'll need to deserialize ourselves!

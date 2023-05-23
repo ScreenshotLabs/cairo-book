@@ -1,7 +1,7 @@
 export const description =
   'On this page, we’ll dive into the different contact endpoints you can use to manage contacts programmatically.'
   
-## Variables and Mutability
+# Variables and Mutability
 
 Cairo uses an immutable memory model, meaning that once a memory cell is written to,
 it can't be overwritten but only read from. To reflect this immutable memory model,
@@ -17,7 +17,7 @@ your _cairo_projects_ directory by using `scarb new variables`.
 Then, in your new _variables_ directory, open _src/lib.cairo_ and replace its
 code with the following code, which won’t compile just yet:
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```rust
 use debug::PrintTrait;
@@ -76,7 +76,7 @@ level, the variable is not redeclared so its type cannot change.
 
 For example, let’s change _src/lib.cairo_ to the following:
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```rust
 use debug::PrintTrait;
@@ -103,7 +103,7 @@ We’re allowed to change the value bound to `x` from `5` to `6` when `mut` is
 used. Ultimately, deciding whether to use mutability or not is up to you and
 depends on what you think is clearest in that particular situation.
 
-### Constants
+## Constants
 
 Like immutable variables, _constants_ are values that are bound to a name and
 are not allowed to change, but there are a few differences between constants
@@ -143,7 +143,7 @@ conveying the meaning of that value to future maintainers of the code. It also
 helps to have only one place in your code you would need to change if the
 hardcoded value needed to be updated in the future.
 
-### Shadowing
+## Shadowing
 
 Variable shadowing refers to the declaration of a
 new variable with the same name as a previous variable. Caironautes say that the
@@ -154,7 +154,7 @@ variable name to itself until either it itself is shadowed or the scope ends.
 We can shadow a variable by using the same variable’s name and repeating the
 use of the `let` keyword as follows:
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```swift
 use debug::PrintTrait;
@@ -249,4 +249,4 @@ Error: failed to compile: src/lib.cairo
 Now that we’ve explored how variables work, let’s look at more data types they
 can have.
 
-[data-types]: ch02-02-data-types.md
+[data-types](/ch02-02-data-types)

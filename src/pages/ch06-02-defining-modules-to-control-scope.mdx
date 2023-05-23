@@ -90,7 +90,7 @@ backyard/
 
 The crate root file in this case is _src/lib.cairo_, and it contains:
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```rust
 use garden::vegetables::Asparagus;
@@ -106,7 +106,7 @@ fn main(){
 
 The `mod garden;` line tells the compiler to include the code it finds in _src/garden.cairo_, which is:
 
-<span class="filename">Filename: src/garden.cairo</span>
+<span className="filename">Filename: src/garden.cairo</span>
 
 ```rust
 mod vegetables;
@@ -144,7 +144,7 @@ To structure our crate in this way, we can organize its functions into nested
 modules. Create a new package named `restaurant` by running `scarb new restaurant`; then enter the code in Listing 6-1 into _src/lib.cairo_ to
 define some modules and function signatures. Here’s the front of house section:
 
-<span class="filename">Filename: src/lib.cairo</span>
+<span className="filename">Filename: src/lib.cairo</span>
 
 ```rust
 mod front_of_house {
@@ -164,7 +164,7 @@ mod front_of_house {
 }
 ```
 
-<span class="caption">Listing 6-1: A `front_of_house` module containing other
+<span className="caption">Listing 6-1: A `front_of_house` module containing other
 modules that then contain functions</span>
 
 We define a module with the `mod` keyword followed by the name of the module
@@ -198,7 +198,7 @@ restaurant
          └── take_payment
 ```
 
-<span class="caption">Listing 6-2: The module tree for the code in Listing
+<span className="caption">Listing 6-2: The module tree for the code in Listing
 6-1</span>
 
 This tree shows how some of the modules nest inside one another; for example,

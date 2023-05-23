@@ -3,7 +3,7 @@ export const description =
   
 # The Match Control Flow Construct
 
-<!-- TODO : update mention of chapter 18 (on patterns and matching chapter) in paragraph below -->
+{/* TODO : update mention of chapter 18 (on patterns and matching chapter) in paragraph below */}
 
 Cairo has an extremely powerful control flow construct called `match` that allows you to compare a value against a series of patterns and then execute code based on which pattern matches. Patterns can be made up of literal values, variable names, wildcards, and many other things. The power of match comes from the expressiveness of the patterns and the fact that the compiler confirms that all possible cases are handled.
 
@@ -210,4 +210,4 @@ fn did_i_win(nb: felt252) {
 
 The first arm, the pattern is the literal values 0. For the last arm that covers every other possible value, the pattern is the character `_`. This code compiles, even though we haven’t listed all the possible values a `felt252` can have, because the last pattern will match all values not specifically listed. This catch-all pattern meets the requirement that `match` must be exhaustive. Note that we have to put the catch-all arm last because the patterns are evaluated in order. If we put the catch-all arm earlier, the other arms would never run, so Cairo will warn us if we add arms after a catch-all!
 
-<!-- TODO : might need to link the end of this chapter to patterns and matching chapter -->
+{/* TODO : might need to link the end of this chapter to patterns and matching chapter */}
