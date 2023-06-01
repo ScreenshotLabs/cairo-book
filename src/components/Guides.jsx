@@ -4,25 +4,25 @@ import { Heading } from '@/components/Heading'
 const guides = [
   {
     href: '/authentication',
-    name: 'fff',
-    description: 'Learn how to authenticate your API requests.',
+    name: 'Common Programming Concepts',
+    description: 'This chapter covers concepts that appear in almost every programming language and how they work in Cairo.',
   },
   {
     href: '/pagination',
-    name: 'rzr',
-    description: 'Understand how to work with paginated responses.',
+    name: 'Understanding Ownership',
+    description: 'Cairo is a language built around a linear type system that allows us to statically ensure that in every Cairo program, a value is used exactly once.',
   },
   {
     href: '/errors',
-    name: 'Errors',
+    name: 'Enums and Pattern Matching',
     description:
-      'Read about the different types of errors returned by the API.',
+      'Enums, short for "enumerations," are a way to define a custom data type that consists of a fixed set of named values, called variants.',
   },
   {
     href: '/webhooks',
-    name: 'Webhooks',
+    name: 'Starknet smart contracts',
     description:
-      'Learn how to programmatically configure webhooks for your app.',
+      'Starknet contracts, in simple words, are programs that can run on the Starknet VM. ',
   },
 ]
 

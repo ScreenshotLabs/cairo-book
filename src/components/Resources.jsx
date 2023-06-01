@@ -10,10 +10,10 @@ import { UsersIcon } from '@/components/icons/UsersIcon'
 
 const resources = [
   {
-    href: '/contacts',
-    name: 'Contacts',
+    href: 'https://github.com/shramee/starklings-cairo1',
+    name: 'Starklings',
     description:
-      'Learn about the contact model and how to create, retrieve, update, delete, and list contacts.',
+      'An interactive tutorial to get you up and running with Cairo v1 and Starknet.',
     icon: UserIcon,
     pattern: {
       y: 16,
@@ -23,45 +23,45 @@ const resources = [
       ],
     },
   },
-  {
-    href: '/conversations',
-    name: 'Conversations',
-    description:
-      'Learn about the conversation model and how to create, retrieve, update, delete, and list conversations.',
-    icon: ChatBubbleIcon,
-    pattern: {
-      y: -6,
-      squares: [
-        [-1, 2],
-        [1, 3],
-      ],
-    },
-  },
-  {
-    href: '/messages',
-    name: 'Messages',
-    description:
-      'Learn about the message model and how to create, retrieve, update, delete, and list messages.',
-    icon: EnvelopeIcon,
-    pattern: {
-      y: 32,
-      squares: [
-        [0, 2],
-        [1, 4],
-      ],
-    },
-  },
-  {
-    href: '/groups',
-    name: 'Groups',
-    description:
-      'Learn about the group model and how to create, retrieve, update, delete, and list groups.',
-    icon: UsersIcon,
-    pattern: {
-      y: 22,
-      squares: [[0, 1]],
-    },
-  },
+  // {
+  //   href: '/conversations',
+  //   name: 'Conversations',
+  //   description:
+  //     'Learn about the conversation model and how to create, retrieve, update, delete, and list conversations.',
+  //   icon: ChatBubbleIcon,
+  //   pattern: {
+  //     y: -6,
+  //     squares: [
+  //       [-1, 2],
+  //       [1, 3],
+  //     ],
+  //   },
+  // },
+  // {
+  //   href: '/messages',
+  //   name: 'Messages',
+  //   description:
+  //     'Learn about the message model and how to create, retrieve, update, delete, and list messages.',
+  //   icon: EnvelopeIcon,
+  //   pattern: {
+  //     y: 32,
+  //     squares: [
+  //       [0, 2],
+  //       [1, 4],
+  //     ],
+  //   },
+  // },
+  // {
+  //   href: '/groups',
+  //   name: 'Groups',
+  //   description:
+  //     'Learn about the group model and how to create, retrieve, update, delete, and list groups.',
+  //   icon: UsersIcon,
+  //   pattern: {
+  //     y: 22,
+  //     squares: [[0, 1]],
+  //   },
+  // },
 ]
 
 function ResourceIcon({ icon: Icon }) {
