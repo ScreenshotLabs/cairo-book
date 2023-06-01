@@ -23,20 +23,20 @@ const resources = [
       ],
     },
   },
-  // {
-  //   href: '/conversations',
-  //   name: 'Conversations',
-  //   description:
-  //     'Learn about the conversation model and how to create, retrieve, update, delete, and list conversations.',
-  //   icon: ChatBubbleIcon,
-  //   pattern: {
-  //     y: -6,
-  //     squares: [
-  //       [-1, 2],
-  //       [1, 3],
-  //     ],
-  //   },
-  // },
+  {
+    href: 'https://book.starknet.io/',
+    name: 'The Starknet Book',
+    description:
+      'The Starknet Book is a curriculum created to teach the Cairo programming language and Starknet development. It is divided by Chapters and built by the Starknet community (you!). Finish the resume and you will conquer the Ethereum world.',
+    icon: ChatBubbleIcon,
+    pattern: {
+      y: -6,
+      squares: [
+        [-1, 2],
+        [1, 3],
+      ],
+    },
+  },
   // {
   //   href: '/messages',
   //   name: 'Messages',
